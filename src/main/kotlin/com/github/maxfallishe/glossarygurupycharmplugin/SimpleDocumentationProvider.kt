@@ -4,11 +4,12 @@ import com.intellij.lang.documentation.DocumentationProvider
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNamedElement
+import com.jetbrains.python.documentation.PythonDocumentationProvider
 import org.jetbrains.annotations.Nullable
 import org.jetbrains.annotations.NotNull
 import java.io.File
 
-class SimpleDocumentationProvider : DocumentationProvider {
+class SimpleDocumentationProvider : PythonDocumentationProvider() {
     // Map to hold the glossary terms and their definitions
     private val glossary: Map<String, String>
 
@@ -62,17 +63,17 @@ class SimpleDocumentationProvider : DocumentationProvider {
         return  term + " — " + glossary[term]
     }
 
-    override fun getQuickNavigateInfo(element: PsiElement, originalElement: PsiElement?): String {
-        thisLogger().warn("getQuickNavigateInfo: $element")
-        return "Quick navigate info: ${element.toString()}"
-    }
 
     override fun generateHoverDoc(@NotNull element: PsiElement, @Nullable originalElement: PsiElement?): String {
         thisLogger().warn("generateHoverDoc called for element: $element")
         return "Hover doc: ${element.toString()}"
     }
 
-    override fun generateDoc(element: PsiElement, originalElement: PsiElement?): String {
+    override fun generateDoc(element: PsiElement, originalElement: PsiElement?): String? {
+        // Call the original method to get the default documentation
+        val originalDoc = super.generateDoc(element, originalElement)
+
+
         if (element is PsiNamedElement) {
             val elementName = element.name ?: return "No documentation available."
             val matchedGlossaryWords = findGlossaryWordsInName(elementName)
@@ -83,11 +84,11 @@ class SimpleDocumentationProvider : DocumentationProvider {
 
             thisLogger().warn("generateDoc called for element: $element || ${element.name}")
             return if (glossaryDocs.isNotEmpty()) {
-                glossaryDocs.joinToString(separator = "\n\n") { doc -> "<p><b>$doc</b></p>" }
+                originalDoc + glossaryDocs.joinToString(separator = "\n\n") { doc -> "<p><b>$doc</b></p>" }
             } else {
-                "No glossary matches found in the name."
+                "$originalDoc<p>No glossary matches found in the name.<p>"
             }
         }
-        return "No documentation available."
+        return originalDoc
     }
 }
