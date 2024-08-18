@@ -10,5 +10,10 @@
         <lang.documentationProvider language="Python" implementationClass="com.github.maxfallishe.glossarygurupycharmplugin.SimpleDocumentationProvider" order="first"/>
     </extensions>
 
+<!--    <applicationListeners>-->
+<!--    <listener class="com.github.maxfallishe.glossarygurupycharmplugin.listeners.MyProjectManagerListener"-->
+<!--              topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+<!--    </applicationListeners>-->
+
 </idea-plugin>
 
