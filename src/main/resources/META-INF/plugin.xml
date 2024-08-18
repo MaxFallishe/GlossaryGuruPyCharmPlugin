@@ -9,7 +9,10 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <lang.documentationProvider language="Python" implementationClass="com.github.maxfallishe.glossarygurupycharmplugin.SimpleDocumentationProvider" order="first"/>
         <toolWindow factoryClass="com.github.maxfallishe.glossarygurupycharmplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+
+<!--        <lang.documentationProvider language="Python" implementationClass="com.github.maxfallishe.glossarygurupycharmplugin.SimpleDocumentationProvider"/>-->
 <!--        <lang.documentationProvider language="Python" implementationClass="com.github.maxfallishe.glossarygurupycharmplugin.SpecialDocumentProvider"/>-->
     </extensions>
 
