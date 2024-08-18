@@ -6,24 +6,9 @@
 
     <depends>com.intellij.modules.python</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
         <lang.documentationProvider language="Python" implementationClass="com.github.maxfallishe.glossarygurupycharmplugin.SimpleDocumentationProvider" order="first"/>
-        <toolWindow factoryClass="com.github.maxfallishe.glossarygurupycharmplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.maxfallishe.glossarygurupycharmplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
-
-
-    <actions>
-        <group id="MyPlugin.GreetingMenu" text="Greeting" description="Greeting menu">
-            <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="MyPlugin.Hello" class="com.github.maxfallishe.glossarygurupycharmplugin.HelloAction" text="Hello"
-                    description="Says hello"/>
-        </group>
-    </actions>
 </idea-plugin>
 
