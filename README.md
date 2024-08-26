@@ -1,8 +1,8 @@
 # GlossaryGuru
 
 [//]: # (![Build]&#40;https://github.com/MaxFallishe/GlossaryGuruPyCharmPlugin/workflows/Build/badge.svg&#41;)
-[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/25191-glossaryguru.svg)](https://plugins.jetbrains.com/plugin/25191-glossaryguru)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/25191-glossaryguru.svg)](https://plugins.jetbrains.com/plugin/25191-glossaryguru)
 
 ## About
 <!-- Plugin description -->
